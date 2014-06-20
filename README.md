@@ -17,7 +17,6 @@ const Knex = require('knex')({
     password: "pass"
   },
 });
-const Bookshelf = 
 const BaseModel = Model({
   Bookshelf: require('bookshelf')(Knex),
   Validator: require('checkit'),
