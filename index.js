@@ -123,9 +123,9 @@ module.exports = function (opts) {
         var relation = deps[dep];
         var table = relation.model.prototype.tableName;
         if(_.isNumber(parent)) {
-          query = DB.knex(table).column('id').where(relation.key, parent);
+          query = Bookshelf.knex(table).column('id').where(relation.key, parent);
         } else {
-          query = DB.knex(table).column('id').whereRaw(relation.key+' IN ('+parent.toString()+')');
+          query = Bookshelf.knex(table).column('id').whereRaw(relation.key+' IN ('+parent.toString()+')');
         }
         queries.push(query);
         queries.push(relation.model.cascadeDeletes(query).reverse());
